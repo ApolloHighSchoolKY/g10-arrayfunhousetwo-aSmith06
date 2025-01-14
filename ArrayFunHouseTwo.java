@@ -1,10 +1,11 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+//ï¿½ A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
 //Lab  -
 
 import java.lang.System;
+import java.util.Arrays;
 import java.lang.Math;
 
 public class ArrayFunHouseTwo
@@ -16,6 +17,11 @@ public class ArrayFunHouseTwo
 	public static boolean goingUp(int[] numArray)
 	{
 
+		for (int i = 0; i < numArray.length - 1; i++){
+			if(numArray[i] > numArray[i + 1])
+				return false;
+		}
+
 		return true;
 	}
 
@@ -26,6 +32,10 @@ public class ArrayFunHouseTwo
 	public static boolean goingDown(int[] numArray)
 	{
 
+		for (int i = 0; i < numArray.length - 1; i++)
+			if(numArray[i] < numArray[i + 1])
+				return false;
+
 		return true;
 	}
 
@@ -34,6 +44,18 @@ public class ArrayFunHouseTwo
 	//[1,2,3,4,5,6,7,8,9,10,11,6],3,5  would return [6,7,8]
 	public static int[] getCountValuesBiggerThanX(int[] numArray, int count, int x)
 	{
-		return null;
+		int[] returnArray = new int[count];
+		int pos = 0;
+
+		int i = 0;
+		while(pos < returnArray.length && i < numArray.length){
+			if(numArray[i] > x){
+				returnArray[pos] = numArray[i];
+				pos++;
+			}
+			i++;
+		}
+
+		return returnArray;
 	}
 }
